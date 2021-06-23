@@ -1,8 +1,15 @@
 # Jekyll::Anticache::Tag
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/jekyll_anticache_tag`. To experiment with that code, run `bin/console` for an interactive prompt.
+A simple Jekyll tag for cache busting.
 
-TODO: Delete this and the text above, and describe your gem
+add unixtime query string for assets every build
+
+## Usecase
+
+```
+{% acasset foo.png %}
+# => foo.png?1624352400
+```
 
 ## Installation
 
@@ -22,7 +29,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+add line as below in `plugins:` key of `_config.yml `
+
+```yaml
+  - jekyll-anticache-tag
+```
+
+### replace tag_name
+
+If you want to write just `asset` in order to use this, add as below in `_config.yaml`
+
+```yaml
+anticache_tag:
+  tag: 'asset'
+```
 
 ## Development
 
