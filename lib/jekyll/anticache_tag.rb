@@ -10,7 +10,9 @@ module Jekyll
       
       class << self
         #
-        # [param] Object site
+        # register tag with site config
+        #
+        # @param site [Object]
         #
         # :reek:DuplicateMethodCall
         def register(site)
@@ -26,15 +28,29 @@ module Jekyll
         end
       end
 
+      #
+      # @param tag_name [String]
+      # @param text [String]
+      # @param tokens [Object]
+      #
       def initialize(tag_name, text, tokens)
         super
         @text = text
       end
-      
+
+      #
+      # render string with time-based cache busting number when build
+      #
+      # @param context [Object]
+      # @return [String]
+      #
+      # :reek:FeatureEnvy
       def render(context)
+        env = context.environments&.first['jekyll']&.environment || ENV['JEKYLL_ENV']
+
         text = @text.strip.gsub(/['"]/, '')
 
-        if ENV['JEKYLL_ENV'] != 'development'
+        if env != 'development'
           site = context.registers[:site]
 
           "#{text}?#{site.time.to_i}"
