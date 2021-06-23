@@ -5,5 +5,9 @@
 /doc/
 /pkg/
 /spec/reports/
+/spec/dummy_jekyll/*
+!/spec/dummy_jekyll/_site/.keep
+!/spec/dummy_jekyll/source/.keep
+/vendor/
 /tmp/
 Gemfile.lock
