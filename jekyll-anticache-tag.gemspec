@@ -5,8 +5,8 @@ require "jekyll/anticache_tag/version"
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-anticache-tag"
   spec.version       = Jekyll::Anticache::VERSION
-  spec.authors       = ["T.Watanabe"]
-  spec.email         = ["watanabe@colorfulcompany.co.jp"]
+  spec.authors       = [""]
+  spec.email         = [""]
 
   spec.summary       = %q{A simple Jekyll tag for cache busting.}
   spec.description   = %q{add unixtime query string for assets every build.}
